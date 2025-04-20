@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -24,12 +26,14 @@ class MyApp extends StatelessWidget {
 }
 
 class WelcomeScreen extends StatelessWidget {
+  const WelcomeScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         width: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/images/Bitmap.png"),
             fit: BoxFit.fill,
@@ -41,7 +45,7 @@ class WelcomeScreen extends StatelessWidget {
             RichText(
               text: TextSpan(
                 style: Theme.of(context).textTheme.displayMedium,
-                children: [
+                children: const [
                   TextSpan(
                     text: "flamin",
                   ),

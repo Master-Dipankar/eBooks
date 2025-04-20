@@ -4,6 +4,8 @@ import 'package:book_app/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 
 class DetailsScreen extends StatelessWidget {
+  const DetailsScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -19,7 +21,7 @@ class DetailsScreen extends StatelessWidget {
                   alignment: Alignment.topCenter,
                   padding: EdgeInsets.only(top: size.height * .12, left: size.width * .1, right: size.width * .02),
                   height: size.height * .48,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("assets/images/bg.png"),
                       fit: BoxFit.fitWidth,
@@ -60,21 +62,21 @@ class DetailsScreen extends StatelessWidget {
 
                         },
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                     ],
                   ),
                 ),
               ],
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24),
+              padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   RichText(
                     text: TextSpan(
                       style: Theme.of(context).textTheme.headlineSmall,
-                      children: [
+                      children: const [
                         TextSpan(
                           text: "You might also ",
                         ),
@@ -85,10 +87,10 @@ class DetailsScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Stack(
                     children: <Widget>[
-                      Container(
+                      SizedBox(
                         height: 180,
                         width: double.infinity,
                       ),
@@ -98,18 +100,18 @@ class DetailsScreen extends StatelessWidget {
                         right: 0,
                         child: Container(
                           padding:
-                              EdgeInsets.only(left: 24, top: 24, right: 150),
+                              const EdgeInsets.only(left: 24, top: 24, right: 150),
                           height: 160,
                           width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(29),
-                            color: Color(0xFFFFF8F9),
+                            color: const Color(0xFFFFF8F9),
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               RichText(
-                                text: TextSpan(
+                                text: const TextSpan(
                                   style: TextStyle(color: kBlackColor),
                                   children: [
                                     TextSpan(
@@ -128,10 +130,10 @@ class DetailsScreen extends StatelessWidget {
                               ),
                               Row(
                                 children: <Widget>[
-                                  BookRating(
+                                  const BookRating(
                                     score: 4.9,
                                   ),
-                                  SizedBox(width: 10),
+                                  const SizedBox(width: 10),
                                   Expanded(
                                     child: RoundedButton(
                                       text: "Read",
@@ -158,7 +160,7 @@ class DetailsScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
           ],
@@ -176,24 +178,24 @@ class ChapterCard extends StatelessWidget {
   const ChapterCard({Key? key, required this.name, required this.tag, required this.chapterNumber, required this.press}) : super(key: key);
 
   ChapterCard copyWith({String? name, String? tag, int? chapterNumber, VoidCallback? press}) {
-    return ChapterCard(key: this.key, name: name ?? this.name, tag: tag ?? this.tag, chapterNumber: chapterNumber ?? this.chapterNumber, press: press ?? this.press);
+    return ChapterCard(key: key, name: name ?? this.name, tag: tag ?? this.tag, chapterNumber: chapterNumber ?? this.chapterNumber, press: press ?? this.press);
   }
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
-      margin: EdgeInsets.only(bottom: 16),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+      margin: const EdgeInsets.only(bottom: 16),
       width: size.width - 48,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(38.5),
         boxShadow: [
           BoxShadow(
-            offset: Offset(0, 10),
+            offset: const Offset(0, 10),
             blurRadius: 33,
             // ignore: deprecated_member_use
-            color: Color(0xFFD3D3D3).withOpacity(.84),
+            color: const Color(0xFFD3D3D3).withOpacity(.84),
           ),  
         ],
       ),
@@ -204,7 +206,7 @@ class ChapterCard extends StatelessWidget {
               children: <TextSpan>[
                 TextSpan(
                   text: "Chapter $chapterNumber : $name \n",
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                     color: kBlackColor,
                     fontWeight: FontWeight.bold,
@@ -212,14 +214,14 @@ class ChapterCard extends StatelessWidget {
                 ),
                 TextSpan(
                   text: tag,
-                  style: TextStyle(color: kLightBlackColor),
+                  style: const TextStyle(color: kLightBlackColor),
                 ),
               ],
             ),
           ),
-          Spacer(),
+          const Spacer(),
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_forward_ios,
               size: 18,
             ),
@@ -255,17 +257,15 @@ class BookInfo extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     "Crushing &",
-                    style: Theme.of(context).textTheme.headlineMedium == null
-                        ? null
-                        : Theme.of(context).textTheme.headlineMedium!.copyWith(
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                             fontSize: 28,
                           ),
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: this.size.height * .005),
+                  margin: EdgeInsets.only(top: size.height * .005),
                   alignment: Alignment.centerLeft,
-                  padding: EdgeInsets.only(top: 0),
+                  padding: const EdgeInsets.only(top: 0),
                   child: Text(
                     "Influence",
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
@@ -280,9 +280,9 @@ class BookInfo extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         Container(
-                          width: this.size.width * .3,
-                          padding: EdgeInsets.only(top: this.size.height * .02),
-                          child: Text(
+                          width: size.width * .3,
+                          padding: EdgeInsets.only(top: size.height * .02),
+                          child: const Text(
                             "When the earth was flat andeveryone wanted to win the gameof the best and people and winning with an A game with all the things you have.",
                             maxLines: 5,
                             style: TextStyle(
@@ -292,15 +292,15 @@ class BookInfo extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.only(top: this.size.height * .015),
-                          padding: EdgeInsets.only(left: 10, right: 10),
+                          margin: EdgeInsets.only(top: size.height * .015),
+                          padding: const EdgeInsets.only(left: 10, right: 10),
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(30),
                           ),
                           child: TextButton(
                             onPressed: () {  },
-                            child: Text("Read", style: TextStyle(fontWeight: FontWeight.bold),),
+                            child: const Text("Read", style: TextStyle(fontWeight: FontWeight.bold),),
                           ), 
                         )
                       ],
@@ -308,10 +308,10 @@ class BookInfo extends StatelessWidget {
                     Column(
                       children: <Widget>[
                         IconButton(
-                            icon: Icon(Icons.favorite_border, size: 20, color: Colors.grey,),
+                            icon: const Icon(Icons.favorite_border, size: 20, color: Colors.grey,),
                             onPressed: () {},
                         ), 
-                        BookRating(score: 4.9),
+                        const BookRating(score: 4.9),
                       ],
                     )
                   ],

@@ -7,6 +7,8 @@ import 'package:book_app/widgets/two_side_rounded_button.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -17,7 +19,7 @@ class HomeScreen extends StatelessWidget {
           children: <Widget>[
             Container(
               width: double.infinity,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage("assets/images/main_page_bg.png"),
                   alignment: Alignment.topCenter,
@@ -33,7 +35,7 @@ class HomeScreen extends StatelessWidget {
                     child: RichText(
                       text: TextSpan(
                         style: Theme.of(context).textTheme.headlineMedium,
-                        children: [
+                        children: const [
                           TextSpan(text: "What are you \nreading "),
                           TextSpan(
                               text: "today?",
@@ -44,7 +46,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -65,25 +67,25 @@ class HomeScreen extends StatelessWidget {
                             );
                           },
                         ),
-                        ReadingListCard(
+                        const ReadingListCard(
                           image: "assets/images/book-2.png",
                           title: "Top Ten Business Hacks",
                           auth: "Herman Joel",
                           rating: 4.8,
                         ),
-                        SizedBox(width: 30),
+                        const SizedBox(width: 30),
                       ],
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 24),
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         RichText(
                           text: TextSpan(
                             style: Theme.of(context).textTheme.headlineMedium,
-                            children: [
+                            children: const [
                               TextSpan(text: "Best of the "),
                               TextSpan(
                                 text: "day",
@@ -96,7 +98,7 @@ class HomeScreen extends StatelessWidget {
                         RichText(
                           text: TextSpan(
                             style: Theme.of(context).textTheme.headlineMedium,
-                            children: [
+                            children: const [
                               TextSpan(text: "Continue "),
                               TextSpan(
                                 text: "reading...",
@@ -105,7 +107,7 @@ class HomeScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         Container(
                           height: 80,
                           width: double.infinity,
@@ -114,9 +116,9 @@ class HomeScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(38.5),
                             boxShadow: [
                               BoxShadow(
-                                offset: Offset(0, 10),
+                                offset: const Offset(0, 10),
                                 blurRadius: 33,
-                                color: Color(0xFFD3D3D3).withOpacity(.84),
+                                color: const Color(0xFFD3D3D3).withOpacity(.84),
                               )
                             ],
                           ),
@@ -128,10 +130,10 @@ class HomeScreen extends StatelessWidget {
                                 Expanded(
                                   child: Padding(
                                     padding:
-                                        EdgeInsets.only(left: 30, right: 20),
+                                        const EdgeInsets.only(left: 30, right: 20),
                                     child: Row(
                                       children: <Widget>[
-                                        Expanded(
+                                        const Expanded(
                                           child: Column(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.end,
@@ -185,7 +187,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 40),
+                        const SizedBox(height: 40),
                       ],
                     ),
                   ),
@@ -200,7 +202,7 @@ class HomeScreen extends StatelessWidget {
 
   Container bestOfTheDayCard(Size size, BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 20),
+      margin: const EdgeInsets.symmetric(vertical: 20),
       width: double.infinity,
       height: 245,
       child: Stack(
@@ -218,15 +220,15 @@ class HomeScreen extends StatelessWidget {
               height: 230,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Color(0xFFEAEAEA).withOpacity(.45),
+                color: const Color(0xFFEAEAEA).withOpacity(.45),
                 borderRadius: BorderRadius.circular(29),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
-                    margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
-                    child: Text(
+                    margin: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+                    child: const Text(
                       "New York Time Best For 11th March 2020",
                       style: TextStyle(
                         fontSize: 9,
@@ -238,11 +240,11 @@ class HomeScreen extends StatelessWidget {
                     "How To Win \nFriends &  Influence",
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
-                  Text(
+                  const Text(
                     "Gary Venchuk",
                     style: TextStyle(color: kLightBlackColor),
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(top: 10, bottom: 10.0),
                     child: Row(
                       children: <Widget>[
