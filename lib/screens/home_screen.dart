@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 24),
                     child: RichText(
                       text: TextSpan(
-                        style: Theme.of(context).textTheme.headline4,
+                        style: Theme.of(context).textTheme.headlineMedium,
                         children: [
                           TextSpan(text: "What are you \nreading "),
                           TextSpan(
@@ -82,7 +82,7 @@ class HomeScreen extends StatelessWidget {
                       children: <Widget>[
                         RichText(
                           text: TextSpan(
-                            style: Theme.of(context).textTheme.headline4,
+                            style: Theme.of(context).textTheme.headlineMedium,
                             children: [
                               TextSpan(text: "Best of the "),
                               TextSpan(
@@ -95,7 +95,7 @@ class HomeScreen extends StatelessWidget {
                         bestOfTheDayCard(size, context),
                         RichText(
                           text: TextSpan(
-                            style: Theme.of(context).textTheme.headline4,
+                            style: Theme.of(context).textTheme.headlineMedium,
                             children: [
                               TextSpan(text: "Continue "),
                               TextSpan(
@@ -117,7 +117,7 @@ class HomeScreen extends StatelessWidget {
                                 offset: Offset(0, 10),
                                 blurRadius: 33,
                                 color: Color(0xFFD3D3D3).withOpacity(.84),
-                              ),
+                              )
                             ],
                           ),
                           child: ClipRRect(
@@ -236,7 +236,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   Text(
                     "How To Win \nFriends &  Influence",
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context).textTheme.titleLarge,
                   ),
                   Text(
                     "Gary Venchuk",

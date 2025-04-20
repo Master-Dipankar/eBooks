@@ -37,28 +37,28 @@ class DetailsScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       ChapterCard(
-                        name: "Money",
-                        chapterNumber: 1,
-                        tag: "Life is about change",
-                        press: () {},
+                        name: "Money", chapterNumber: 1, tag: "Life is about change",
+                        press: () {
+
+                        },
                       ),
                       ChapterCard(
-                        name: "Power",
-                        chapterNumber: 2,
-                        tag: "Everything loves power",
-                        press: () {},
+                        name: "Power", chapterNumber: 2, tag: "Everything loves power",
+                        press: () {
+
+                        },
                       ),
                       ChapterCard(
-                        name: "Influence",
-                        chapterNumber: 3,
-                        tag: "Influence easily like never before",
-                        press: () {},
+                        name: "Influence", chapterNumber: 3, tag: "Influence easily like never before",
+                        press: () {
+
+                        },
                       ),
                       ChapterCard(
-                        name: "Win",
-                        chapterNumber: 4,
-                        tag: "Winning is what matters",
-                        press: () {},
+                        name: "Win", chapterNumber: 4, tag: "Winning is what matters",
+                        press: () {
+
+                        },
                       ),
                       SizedBox(height: 10),
                     ],
@@ -73,7 +73,7 @@ class DetailsScreen extends StatelessWidget {
                 children: <Widget>[
                   RichText(
                     text: TextSpan(
-                      style: Theme.of(context).textTheme.headline5,
+                      style: Theme.of(context).textTheme.headlineSmall,
                       children: [
                         TextSpan(
                           text: "You might also ",
@@ -135,7 +135,7 @@ class DetailsScreen extends StatelessWidget {
                                   Expanded(
                                     child: RoundedButton(
                                       text: "Read",
-                                      verticalPadding: 10,
+                                      verticalPadding: 10, press: () {  },
                                     ),
                                   ),
                                 ],
@@ -172,15 +172,12 @@ class ChapterCard extends StatelessWidget {
   final String name;
   final String tag;
   final int chapterNumber;
-  final Function press;
-  const ChapterCard({
-    Key key,
-    this.name,
-    this.tag,
-    this.chapterNumber,
-    this.press,
-  }) : super(key: key);
+  final VoidCallback press;
+  const ChapterCard({Key? key, required this.name, required this.tag, required this.chapterNumber, required this.press}) : super(key: key);
 
+  ChapterCard copyWith({String? name, String? tag, int? chapterNumber, VoidCallback? press}) {
+    return ChapterCard(key: this.key, name: name ?? this.name, tag: tag ?? this.tag, chapterNumber: chapterNumber ?? this.chapterNumber, press: press ?? this.press);
+  }
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -195,15 +192,16 @@ class ChapterCard extends StatelessWidget {
           BoxShadow(
             offset: Offset(0, 10),
             blurRadius: 33,
+            // ignore: deprecated_member_use
             color: Color(0xFFD3D3D3).withOpacity(.84),
-          ),
+          ),  
         ],
       ),
       child: Row(
         children: <Widget>[
           RichText(
             text: TextSpan(
-              children: [
+              children: <TextSpan>[
                 TextSpan(
                   text: "Chapter $chapterNumber : $name \n",
                   style: TextStyle(
@@ -225,23 +223,23 @@ class ChapterCard extends StatelessWidget {
               Icons.arrow_forward_ios,
               size: 18,
             ),
-            onPressed: press,
+            onPressed: press,            
           )
         ],
       ),
     );
   }
 }
-
+  
 class BookInfo extends StatelessWidget {
   
-  const BookInfo({
-    Key key,
-    this.size,
-  }) : super(key: key);
+  const BookInfo(
+      {Key? key, required
+        this.size,
+      }) : super(key: key); 
 
   final Size size;
-
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -257,9 +255,11 @@ class BookInfo extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     "Crushing &",
-                    style: Theme.of(context).textTheme.headline4.copyWith(
-                      fontSize: 28
-                    ),
+                    style: Theme.of(context).textTheme.headlineMedium == null
+                        ? null
+                        : Theme.of(context).textTheme.headlineMedium!.copyWith(
+                            fontSize: 28,
+                          ),
                   ),
                 ),
                 Container(
@@ -268,7 +268,7 @@ class BookInfo extends StatelessWidget {
                   padding: EdgeInsets.only(top: 0),
                   child: Text(
                     "Influence",
-                    style: Theme.of(context).textTheme.subtitle1.copyWith(
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
                     ),
@@ -298,8 +298,8 @@ class BookInfo extends StatelessWidget {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(30),
                           ),
-                          child: FlatButton(
-                            onPressed: () {},
+                          child: TextButton(
+                            onPressed: () {  },
                             child: Text("Read", style: TextStyle(fontWeight: FontWeight.bold),),
                           ), 
                         )

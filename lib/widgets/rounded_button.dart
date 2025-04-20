@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 
 class RoundedButton extends StatelessWidget {
-
   final String text;
-  final Function press;
+  final GestureTapCallback? press;
   final double verticalPadding;
   final double horizontalPadding;
   final double fontSize;
 
   RoundedButton({
-    Key key,
-    this.text,
-    this.press,
-    this.verticalPadding = 16,
-    this.horizontalPadding = 30,
-    this.fontSize = 16, 
-  }) : super(key: key);
+    Key? key,
+    required this.text,
+    required this.press,
+    this.verticalPadding = 16, this.horizontalPadding = 30, this.fontSize = 16,
+  }): super(key: key);
 
   @override
   Widget build(BuildContext context) {

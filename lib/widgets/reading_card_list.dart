@@ -7,15 +7,15 @@ class ReadingListCard extends StatelessWidget {
   final String image;
   final String title;
   final String auth;
-  final double rating;
-  final Function pressDetails;
-  final Function pressRead;
+  final double? rating;
+  final GestureTapCallback? pressDetails;
+  final GestureTapCallback? pressRead;
 
   const ReadingListCard({
-    Key key,
-    this.image,
-    this.title,
-    this.auth,
+    Key? key,
+    required this.image,
+    required this.title,
+    required this.auth,
     this.rating,
     this.pressDetails,
     this.pressRead,
@@ -63,7 +63,7 @@ class ReadingListCard extends StatelessWidget {
                   ),
                   onPressed: () {},
                 ),
-                BookRating(score: rating),
+                BookRating(score: rating!.toDouble()),
               ],
             ),
           ),
@@ -101,7 +101,7 @@ class ReadingListCard extends StatelessWidget {
                   Spacer(),
                   Row(
                     children: <Widget>[
-                      GestureDetector(
+                      InkWell(
                         onTap: pressDetails,
                         child: Container(
                           width: 101,
